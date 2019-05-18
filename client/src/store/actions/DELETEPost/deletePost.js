@@ -1,7 +1,7 @@
 // import axios from "axios"
 import successDeletion from "./successDeletion"
 import errorDeletion from "./errorDeletion"
-import processedDeletion from "/home/matic/Projects/MERN/client/src/store/actions/DELETEPost/processedDeletion.js"
+import processedDeletion from "./processedDeletion.js"
 
 const deletePost = (id) => {
     //console.log(id)

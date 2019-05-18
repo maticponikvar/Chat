@@ -1,7 +1,7 @@
 import axios from "axios"
 import successUsers from "./successUsers"
 import errorUsers from "./errorUsers"
-import processedUsers from "/home/matic/Projects/MERN/client/src/store/actions/GETUsers/processedUsers.js"
+import processedUsers from "./processedUsers.js"
 
 const requestUsers = () => {
     return(dispatch) =>{
