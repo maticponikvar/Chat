@@ -8,10 +8,12 @@ const bodyParser = require("body-parser");
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 const cookieParser = require('cookie-parser');
+const path = require("path");
 
 const port = 3001;
 const app = express();
 
+app.use(express.static(path.join(__dirname, "client/build")))
 const dbRoute = "mongodb://localhost:27017/blog"
 mongoose.connect(dbRoute, { useNewUrlParser: true })
 
