@@ -1,9 +1,8 @@
 import thunk from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 import { createStore, applyMiddleware, compose } from 'redux'
-import { persistStore, persistCombineReducers, persistReducer } from 'redux-persist'
+import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/es/storage'
-import postsReducer from "./store/reducers/postsReducer"
 import rootReducer from "./store/reducers/rootReducer"
 
 

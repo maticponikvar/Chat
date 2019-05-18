@@ -5,7 +5,6 @@ const successUsers = (usernames) => {
         status : "successful",
         usernames
     }
-
 }
 
 export default successUsers

@@ -5,7 +5,7 @@ const initState = {
   const authReducer = (state = initState, action) => {
     switch(action.type) {
       case 'LOGGEDIN':
-        console.log('login success');
+        //console.log('login success');
         return {
           ...state,
           loggedin :true
@@ -23,4 +23,4 @@ const initState = {
     }
   }
   
-  export default authReducer;
+export default authReducer;

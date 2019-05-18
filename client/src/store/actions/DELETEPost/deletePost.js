@@ -1,12 +1,12 @@
-import axios from "axios"
+// import axios from "axios"
 import successDeletion from "./successDeletion"
 import errorDeletion from "./errorDeletion"
 import processedDeletion from "/home/matic/Projects/MERN/client/src/store/actions/DELETEPost/processedDeletion.js"
 
 const deletePost = (id) => {
-    console.log(id)
+    //console.log(id)
     return(dispatch) =>{
-        console.log(id)
+        //console.log(id)
         const di = {
             id: id}
         fetch("http://localhost:3001/posts/deletePost", 
@@ -21,9 +21,9 @@ const deletePost = (id) => {
       })
         // axios.delete("http://localhost:3001/posts/deletePost", {withCredentials: true})
         .then((res) => {
-            console.log(res, "resss")
+            // console.log(res, "resss")
             //const post = res.data.posts
-            console.log(id)
+            // console.log(id)
             //console.log(res)
             dispatch(successDeletion(id))
         })

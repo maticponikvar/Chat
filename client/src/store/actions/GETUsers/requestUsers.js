@@ -9,7 +9,7 @@ const requestUsers = () => {
         .then((res) => {
             //console.log(res.dasdas, "bodyyyy")
             const usernames = res.data.usernames
-            console.log(res.data)
+            //console.log(res.data)
             dispatch(successUsers(usernames)
             )
         })

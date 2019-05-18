@@ -1,11 +1,11 @@
 const successCreation = (comment, getState) => {
     console.log(getState, "GETETETETSTATATA")
-    return {
-      type : "COMMENTCREATION_SUCCESS",
-      status: "successful",
-      comment
-      }
+  return {
+    type : "COMMENTCREATION_SUCCESS",
+    status: "successful",
+    comment
   }
+}
   
-  export default successCreation
+export default successCreation
   

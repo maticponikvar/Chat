@@ -5,7 +5,7 @@ const initState = {
 
 const postsReducer = (state = initState, action) => {
   //console.log(state, "state")
-  console.log(action, "action")
+  //console.log(action, "action")
 
       switch(action.type) {
           case "POSTS_REQUEST":

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import TextField from '@material-ui/core/TextField';
 import createComment from "../../store/actions/POSTComment/createComment"
 import { connect } from 'react-redux';
-import Post from "./Post"
 
 class Comment extends Component {
     constructor(props) {

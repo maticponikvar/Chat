@@ -1,4 +1,3 @@
-import React from 'react'
 import postsReducer from './postsReducer';
 import { combineReducers } from 'redux'
 import usersReducer from './usersReducer';

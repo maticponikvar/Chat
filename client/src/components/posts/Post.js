@@ -30,11 +30,14 @@ class Post extends Component {
   }
 
   render() {
-    console.log(this.props, "props v post")
-    const { post, stauts } = this.props
+    // console.log(this.props, "props v post")
+    const { post } = this.props
     const comments = post.comments.map((comment) => {
+      let date = new Date(post.date)
+      date = date.toDateString()
+      //console.log(comment)
       return (
-        <div className="post card">
+        <div className="post card" key={comment._id}>
           <div className="card-content">
             <span className="card-body"  >{comment.comment}</span>
             <br />
@@ -44,7 +47,7 @@ class Post extends Component {
                 Posted by {post.author} on {date}
               </span>
               <span className="card-footer">
-                <i class="material-icons">thumb_up</i>
+                <i className="material-icons">thumb_up</i>
               </span>
             </div>
           </div>
@@ -73,7 +76,7 @@ class Post extends Component {
                 Posted by {post.author} on {date}
               </span>
               <span className="card-footer">
-                {author === username && <button onClick={this.handleDelete} className="btn card-footer" >Delete</button>}
+                {author === username && <button onClick={this.handleDelete} className="btn card-footer blue darken-4" >Delete</button>}
               </span>
             </div>
           </div>
@@ -91,9 +94,7 @@ class Post extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  //console.log(ownProps)
   const id = ownProps.match.params.path_id
-  // console.log(id, "id")
   return {
     post: state.postsdata.posts.find(post => post._id === id),
     status: state.postsdata.status,
