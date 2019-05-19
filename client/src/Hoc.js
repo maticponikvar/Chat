@@ -14,7 +14,7 @@ export default function Hoc(ComponentToProtect) {
 
     componentDidMount() {
       //console.log("hello world")
-        axios.get("http://localhost:3001/auth/checkToken", {withCredentials: true})
+        axios.get("/auth/checkToken", {withCredentials: true})
         .then(res => {
           //console.log(res.status)
           if (res.status === 200) {

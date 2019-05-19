@@ -9,7 +9,7 @@ const deletePost = (id) => {
         //console.log(id)
         const di = {
             id: id}
-        fetch("http://localhost:3001/posts/deletePost", 
+        fetch("/posts/deletePost", 
         {
         credentials: 'include',
         method: 'POST',

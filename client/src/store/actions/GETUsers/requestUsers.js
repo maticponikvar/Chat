@@ -5,7 +5,7 @@ import processedUsers from "./processedUsers.js"
 
 const requestUsers = () => {
     return(dispatch) =>{
-        axios.get("http://localhost:3001/auth/users", {withCredentials: true})
+        axios.get("/auth/users", {withCredentials: true})
         .then((res) => {
             //console.log(res.dasdas, "bodyyyy")
             const usernames = res.data.usernames

@@ -14,7 +14,7 @@ const port = 3001;
 const app = express();
 
 app.use(express.static(path.join(__dirname, "../client/build")))
-const dbRoute = "mongodb://localhost:27017/blog"
+const dbRoute = "mongodb://localhost/blog"
 mongoose.connect(dbRoute, { useNewUrlParser: true })
 
 let db = mongoose.connection;

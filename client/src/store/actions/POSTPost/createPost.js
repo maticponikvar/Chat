@@ -12,7 +12,7 @@ const createPost = (post) => {
       permissions: post.selected
     }
 
-    fetch("http://localhost:3001/posts/submitPost",
+    fetch("/posts/submitPost",
       {
         credentials: 'include',
         method: 'POST',
