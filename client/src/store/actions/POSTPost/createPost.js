@@ -12,7 +12,7 @@ const createPost = (post) => {
       permissions: post.selected
     }
 
-    fetch("/posts/submitPost",
+    fetch("/api/posts/submitPost",
       {
         credentials: 'include',
         method: 'POST',

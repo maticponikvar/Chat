@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from "axios"
 import { connect } from "react-redux"
 
- class SignOut extends Component {
+class SignOut extends Component {
 
   componentDidMount() {
     //   console.log(this.props, "props")
@@ -16,32 +16,32 @@ import { connect } from "react-redux"
     //     console.log(document),
     //     cookie.remove("token")
     // );
-      // console.log(e, h)
-      
-      // e.preventDefault()
-      axios.get("http://localhost:3001/auth/signOut", {withCredentials: true})
-          .then((res) => {
-              console.log(res, "bodyyyy")
-              console.log(this.props)
-              
-              // const posts = res.data.posts
-              // const username = res.data.username
-              // this.setState({redirect: true})
-              this.props.loggedIn()
-              localStorage.removeItem("persist:root")
-              this.props.history.push("/signin")
-              
-              // console.log(res)
-              // dispatch(successPosts(posts, username)
-              
-          })
-          .catch((err)=>{
-            console.log(err)
-              // dispatch(errorPosts(err))
-          })
-           
+    // console.log(e, h)
+
+    // e.preventDefault()
+    axios.get("/api/auth/signOut", { withCredentials: true })
+      .then((res) => {
+        console.log(res, "bodyyyy")
+        console.log(this.props)
+
+        // const posts = res.data.posts
+        // const username = res.data.username
+        // this.setState({redirect: true})
+        this.props.loggedIn()
+        localStorage.removeItem("persist:root")
+        this.props.history.push("/signin")
+
+        // console.log(res)
+        // dispatch(successPosts(posts, username)
+
+      })
+      .catch((err) => {
+        console.log(err)
+        // dispatch(errorPosts(err))
+      })
+
   }
-  
+
 
   render() {
     return (
@@ -54,8 +54,8 @@ import { connect } from "react-redux"
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loggedIn : () => {dispatch({type:"LOGGEDOUT"})}
+    loggedIn: () => { dispatch({ type: "LOGGEDOUT" }) }
   }
 }
 
-export default connect (null, mapDispatchToProps)(SignOut)
+export default connect(null, mapDispatchToProps)(SignOut)

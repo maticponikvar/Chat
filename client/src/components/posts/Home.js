@@ -20,8 +20,7 @@ class Home extends Component {
       this.props.loggedIn()
       let date = new Date(post.date)
       date = date.toDateString()
-      //console.log(date)
-
+      
       return (
         <div className="post card" key={post._id} >
           <div className="card-content">

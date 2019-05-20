@@ -2,10 +2,11 @@ import axios from "axios"
 import successUsers from "./successUsers"
 import errorUsers from "./errorUsers"
 import processedUsers from "./processedUsers.js"
+// import config from ".dsadasdas"
 
 const requestUsers = () => {
     return(dispatch) =>{
-        axios.get("/auth/users", {withCredentials: true})
+        axios.get("/api/auth/users", {withCredentials: true})
         .then((res) => {
             //console.log(res.dasdas, "bodyyyy")
             const usernames = res.data.usernames

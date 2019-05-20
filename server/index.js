@@ -10,7 +10,7 @@ var MongoStore = require('connect-mongo')(session);
 const cookieParser = require('cookie-parser');
 const path = require("path");
 
-const port = 3001;
+const port = 5000;
 const app = express();
 
 app.use(express.static(path.join(__dirname, "../client/build")))
@@ -50,9 +50,9 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 //app.use(express.static(__dirname + '/templateLogReg'));
-app.use("/posts", postsRouter)
-app.use("/todos", todosRouter)
-app.use('/auth', authRouter)
+app.use("/api/posts", postsRouter)
+app.use("/api/todos", todosRouter)
+app.use('/api/auth', authRouter)
 
 app.use(function (req, res, next) {
   var err = new Error('File Not Found');

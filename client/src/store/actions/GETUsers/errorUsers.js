@@ -2,7 +2,8 @@ const errorUsers = (err) =>{
     return {
         type: "USERS_ERROR",
         status: "error",
-        error: err}
+        error: err
+    }
 }
 
 export default errorUsers

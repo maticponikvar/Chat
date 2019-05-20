@@ -5,7 +5,7 @@ import processedPosts from "./porcessedPosts"
 
 const requestPosts = () => {
     return (dispatch) => {
-        axios.get("/posts", { withCredentials: true })
+        axios.get("/api/posts", { withCredentials: true })
             .then((res) => {
                 //console.log(res.dasdas, "bodyyyy")
                 const posts = res.data.posts

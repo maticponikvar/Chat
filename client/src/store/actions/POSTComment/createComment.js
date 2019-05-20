@@ -12,7 +12,7 @@ const createComment = (comment) => {
       id: comment.id
     }
     console.log(data, "DARA")
-    fetch("/posts/submitComment",
+    fetch("/api/posts/submitComment",
       {
         credentials: 'include',
         method: 'POST',

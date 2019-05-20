@@ -1,5 +1,5 @@
 const porcessedUsers = () => {
-    return{
+    return {
         type : "USERS_REQUEST",
         status: "pending"
     }

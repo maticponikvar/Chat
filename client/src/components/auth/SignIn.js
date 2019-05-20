@@ -17,28 +17,28 @@ class SignIn extends Component {
 
     // console.log(this.props,"prooops")
 
-      fetch("http://localhost:3001/auth/authenticate", {
-        credentials: 'include',
-        method: 'POST',
-        body: JSON.stringify(this.state),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-  })
-    .then((res) => {
-      if (res.status === 200) {
-
-        console.log("resss poglej cookie", res)
-        this.props.history.push('/');
-      } else {
-        const error = new Error(res.error);
-        throw error;
+    fetch("/api/auth/authenticate", {
+      credentials: 'include',
+      method: 'POST',
+      body: JSON.stringify(this.state),
+      headers: {
+        'Content-Type': 'application/json'
       }
     })
-    .catch(err => {
-      console.error(err);
-      alert('Error logging in please try again');
-  })
+      .then((res) => {
+        if (res.status === 200) {
+
+          console.log("resss poglej cookie", res)
+          this.props.history.push('/');
+        } else {
+          const error = new Error(res.error);
+          throw error;
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        alert('Error logging in please try again');
+      })
   }
   render() {
     // const { authError, auth } = this.props;
