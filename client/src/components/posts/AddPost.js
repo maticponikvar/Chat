@@ -137,7 +137,7 @@ class AddPost extends Component {
                 name="slected"
                 value={this.state.selected}
                 onChange={this.handleSelection}
-                input={<Input id="select-multiple-checkbox" />}
+                input={<Input id="select-multiple-checkbox " />}
                 style={{ display: "none" }}
                 open={this.state.open}
                 onClose={this.handleClose}
@@ -157,7 +157,7 @@ class AddPost extends Component {
           </div>
           <br />
           <div className="center">
-            <button className="btn blue darken-4" onClick={this.handleSubmit}>Sumbit</button>
+            <button className="btn blue darken-4 " onClick={this.handleSubmit}>Sumbit</button>
           </div>
         </form>
       </div>

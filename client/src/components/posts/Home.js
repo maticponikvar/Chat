@@ -17,6 +17,7 @@ class Home extends Component {
     const { postsdata, status } = this.props
 
     const postsList = postsdata.slice(0).reverse().map((post) => {
+      console.log(this.props)
       this.props.loggedIn()
       let date = new Date(post.date)
       date = date.toDateString()

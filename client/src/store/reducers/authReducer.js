@@ -3,12 +3,13 @@ const initState = {
   }
   
   const authReducer = (state = initState, action) => {
+    console.log(action, "6")
     switch(action.type) {
       case 'LOGGEDIN':
         //console.log('login success');
         return {
           ...state,
-          loggedin :true
+          loggedin: true
         }
   
       case 'LOGGEDOUT':

@@ -14,6 +14,11 @@ const port = 5000;
 const app = express();
 
 app.use(express.static(path.join(__dirname, "../client/build")))
+
+app.get('*', function (request, response){
+  (response.sendFile(path.resolve(__dirname, "../client/build/")))
+})
+
 const dbRoute = "mongodb://localhost/blog"
 mongoose.connect(dbRoute, { useNewUrlParser: true })
 

@@ -76,7 +76,7 @@ class Post extends Component {
                 Posted by {post.author} on {date}
               </span>
               <span className="card-footer">
-                {author === username && <button onClick={this.handleDelete} className="btn card-footer blue darken-4" >Delete</button>}
+                {author === username ? <button onClick={this.handleDelete} className="btn card-footer blue darken-4" >Delete</button> :   <i class="material-icons">reply</i>}
               </span>
             </div>
           </div>

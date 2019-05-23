@@ -19,8 +19,10 @@ router.get('/secret', withAuth, function (req, res) {
 router.use(cookieParser())
 
 router.post('/register', function (req, res) {
-  const { email, password } = req.body;
-  const user = new User({ email, password });
+  const { password, username } = req.body;
+  console.log(req.body)
+  const user = new User({password, username });
+  console.log(user)
   user.save(function (err) {
     if (err) {
       console.log(err);
@@ -33,8 +35,8 @@ router.post('/register', function (req, res) {
 
 router.post('/authenticate', function (req, res) {
   // console.log(req.headers)
-  const { email, password } = req.body;
-  User.findOne({ email }, function (err, user) {
+  const { username, password } = req.body;
+  User.findOne({ username }, function (err, user) {
     if (err) {
       console.error(err);
       res.status(500)
@@ -44,7 +46,7 @@ router.post('/authenticate', function (req, res) {
     } else if (!user) {
       res.status(401)
         .json({
-          error: 'Incorrect email or password'
+          error: 'Incorrect username or password'
         });
     } else {
       user.isCorrectPassword(password, function (err, same) {
@@ -56,11 +58,11 @@ router.post('/authenticate', function (req, res) {
         } else if (!same) {
           res.status(401)
             .json({
-              error: 'Incorrect email or password'
+              error: 'Incorrect username or password'
             });
         } else {
           const username = user.username
-          const payload = { email, username };
+          const payload = { username };
           const token = jwt.sign(payload, secret, {
             expiresIn: '1h'
           });
@@ -74,7 +76,7 @@ router.post('/authenticate', function (req, res) {
 
 router.get('/checkToken', withAuth, function (req, res) {
   res.sendStatus(200);
-  console.log(res.email, req.user, "USER && MAIL")
+  console.log(res.username, req.user, "USER && MAIL")
 });
 
 router.get('/signOut', function (req, res) {
@@ -84,10 +86,10 @@ router.get('/signOut', function (req, res) {
   }
 })
 
-router.get("/users", (req, res) => {
+router.get("/users", withAuth, (req, res) => {
   userModel.find((err, users) => {
     usernames = users.map((user) => user.username)
-    console.log(usernames)
+    // console.log(usernames, "USERNWMAMES312  31231 ")
     if (err) return res.json({ error: err });
     return res.json({
       usernames: usernames

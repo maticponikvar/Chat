@@ -69,7 +69,7 @@ router.get("/", withAuth, (req, res) => {
   });
 })
 
-router.post("/deletePost", (req, res) => {
+router.post("/deletePost", withAuth, (req, res) => {
   // console.log(req, "74")
   const { id } = req.body;
   console.log(req.body, "bodIDD")

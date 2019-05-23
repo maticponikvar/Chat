@@ -34,6 +34,7 @@ class Comment extends Component {
             <form onSubmit={this.handleSubmit}>
               <div className="input-field">
                 <TextField
+                 onSubmit={this.handleSubmit}
                   name="comment"
                   onChange={this.handleChange}
                   value={this.state.comment}
@@ -43,7 +44,7 @@ class Comment extends Component {
                   fullWidth={true} />
               </div>
               <div className="center">
-                <button className="btn blue darken-4" onClick={this.handleSubmit}>Sumbit</button>
+                <button className="btn blue darken-4">Sumbit</button>
               </div>
             </form>
           </div>

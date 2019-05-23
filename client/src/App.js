@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Switch, Route, BrowserRouter} from "react-router-dom"
+import {Switch, Route, BrowserRouter, HashRouter} from "react-router-dom"
 import './App.css';
 import Navbar from "./components/layout/Navbar"
 import Home from "./components/posts/Home"
@@ -12,10 +12,9 @@ import Hoc from "./Hoc"
 
 
 class App extends Component {
-  
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter >
         <Navbar />
         <Switch>
           <Route exact path="/" component = {Hoc(Home)}/>
@@ -24,8 +23,8 @@ class App extends Component {
           {/* <Route path='/signup' component={SignUp} /> */}
           <Route path='/signout' component={Hoc(SignOut)} />
           <Route path="/proposal/:path_id" component = {Hoc(Post)}/>
-        </Switch>   
-        </BrowserRouter>
+        </Switch> 
+        </HashRouter>
     )
   }
 }
