@@ -11,7 +11,7 @@ const createComment = (comment) => {
       comment: comment,
       id: comment.id
     }
-    console.log(data, "DARA")
+    //console.log(data, "DARA")
     fetch("/api/posts/submitComment",
       {
         credentials: 'include',

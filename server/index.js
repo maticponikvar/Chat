@@ -15,9 +15,11 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "../client/build")))
 
-app.get('*', function (request, response){
-  (response.sendFile(path.resolve(__dirname, "../client/build/")))
-})
+
+
+// app.get('*', function (request, response){
+//   response.sendFile(path.resolve(__dirname, "../client/build/index.html"))
+// })
 
 const dbRoute = "mongodb://localhost/blog"
 mongoose.connect(dbRoute, { useNewUrlParser: true })
@@ -58,6 +60,10 @@ app.use(cookieParser());
 app.use("/api/posts", postsRouter)
 app.use("/api/todos", todosRouter)
 app.use('/api/auth', authRouter)
+
+app.get('*', function (request, response) {
+  response.sendFile(path.resolve(__dirname, "../client/build/index.html"));
+});
 
 app.use(function (req, res, next) {
   var err = new Error('File Not Found');

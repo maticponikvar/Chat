@@ -26,8 +26,9 @@ class SignIn extends Component {
       }
     })
       .then((res) => {
-        if (res.status === 200) {
-
+        // console.log(res)
+        // console.log(res.body)
+        if (200) {
           console.log("resss poglej cookie", res)
           this.props.history.push('/');
         } else {

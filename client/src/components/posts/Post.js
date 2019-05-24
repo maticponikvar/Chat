@@ -44,7 +44,7 @@ class Post extends Component {
             <br />
             <div className="right-align">
               <span className="card-footer" style={{ float: "left" }}>
-                Posted by {post.author} on {date}
+                Posted by {comment.author} on {date}
               </span>
               <span className="card-footer">
                 <i className="material-icons">thumb_up</i>
@@ -76,7 +76,7 @@ class Post extends Component {
                 Posted by {post.author} on {date}
               </span>
               <span className="card-footer">
-                {author === username ? <button onClick={this.handleDelete} className="btn card-footer blue darken-4" >Delete</button> :   <i class="material-icons">reply</i>}
+                {author === username ? <button onClick={this.handleDelete} className="btn card-footer blue darken-4 z-depth-0" >Delete</button> :   <i class="material-icons">reply</i>}
               </span>
             </div>
           </div>

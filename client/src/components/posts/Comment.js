@@ -55,8 +55,9 @@ class Comment extends Component {
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
+  console.log(ownProps)
   return {
-    createComment: (post) => dispatch(createComment(post))
+    createComment: (comment) => dispatch(createComment(comment))
   }
 }
 

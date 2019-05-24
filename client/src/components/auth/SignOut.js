@@ -46,7 +46,7 @@ class SignOut extends Component {
   render() {
     return (
       <div>
-        <h2>Logging out...</h2>
+        <h2 className="center-align">Logging out...</h2>
       </div>
     )
   }

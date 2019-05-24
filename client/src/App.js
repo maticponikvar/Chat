@@ -14,7 +14,7 @@ import Hoc from "./Hoc"
 class App extends Component {
   render() {
     return (
-      <HashRouter >
+      <BrowserRouter >
         <Navbar />
         <Switch>
           <Route exact path="/" component = {Hoc(Home)}/>
@@ -24,7 +24,7 @@ class App extends Component {
           <Route path='/signout' component={Hoc(SignOut)} />
           <Route path="/proposal/:path_id" component = {Hoc(Post)}/>
         </Switch> 
-        </HashRouter>
+        </BrowserRouter>
     )
   }
 }

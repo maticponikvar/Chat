@@ -29,35 +29,6 @@ class AddPost extends Component {
     }
   }
 
-  // componentDidUpdate() {
-  //   console.log(this.props.status)
-  //   this.props.status === "successful" && this.setState({
-  //     content: "",
-  //     title: ""
-  //   })
-  // }
-
-  // static getDerivedStateFromProps(props, state) {
-  //   console.log(props, "next Props")
-  //   console.log(state, "prevState")
-  //   if (props.status === "successfulCreation") {
-  //     return {
-  //       title: "",
-  //       content: "",
-  //       selected: state.members
-  //     };
-  //   }
-  // }
-
-
-
-
-  // componentDidMount() {
-  //     const teamSize = Math.floor(Math.random() * 16) + 5;
-  //     const teamMates = names.random(teamSize);
-  //     this.setState({ teamMates });
-  //   }
-
 
   handleSelection = event => {
     this.setState({ selected: event.target.value });

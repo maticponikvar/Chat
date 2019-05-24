@@ -67,7 +67,8 @@ router.post('/authenticate', function (req, res) {
             expiresIn: '1h'
           });
           // console.log(token, "tokeeen")
-          res.cookie('token', token, { httpOnly: true }, { withCredentials: true }).sendStatus(200);
+          res.cookie('token', token, { httpOnly: true }, { withCredentials: true })
+          .sendStatus(200)
         }
       });
     }
