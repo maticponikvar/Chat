@@ -1,6 +1,7 @@
 const initState = {
     posts: [],
-    status: ""
+    status: "",
+    username:""
 }
 
 const postsReducer = (state = initState, action) => {

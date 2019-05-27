@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import { connect } from "react-redux"
 import Comment from "./Comment"
 import deletePost from "../../store/actions/DELETEPost/deletePost"
+import Tooltip from '@material-ui/core/Tooltip';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+// import DeleteIcon from '@material-ui/icons/Delete';
+// import IconButton from '@material-ui/core/IconButton'
 
 class Post extends Component {
   constructor(props) {
@@ -12,6 +17,8 @@ class Post extends Component {
       post: this.props.post
     }
   }
+
+  
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
@@ -31,11 +38,16 @@ class Post extends Component {
 
   render() {
     // console.log(this.props, "props v post")
-    const { post } = this.props
+    const { post, username } = this.props
+    const { author } = this.props.post
+    const id = this.props.match.params.path_id
+    //console.log(this.props)
+    
     const comments = post.comments.map((comment) => {
-      let date = new Date(post.date)
-      date = date.toDateString()
-      //console.log(comment)
+      comment.date = new Date(comment.date)
+      comment.date = comment.date.toDateString()
+      let d = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+      // console.log(d)
       return (
         <div className="post card" key={comment._id}>
           <div className="card-content">
@@ -44,7 +56,7 @@ class Post extends Component {
             <br />
             <div className="right-align">
               <span className="card-footer" style={{ float: "left" }}>
-                Posted by {comment.author} on {date}
+                Posted by {!comment.author ? username : comment.author} on {!comment.date ? d : comment.date}
               </span>
               <span className="card-footer">
                 <i className="material-icons">thumb_up</i>
@@ -55,14 +67,15 @@ class Post extends Component {
       )
     })
 
-    const id = this.props.match.params.path_id
-    const { author } = this.props.post
-    const { username } = this.props
-
-    let date = new Date(post.date)
-    date = date.toDateString()
-
+    let permit = post.permissions.toString()
+    permit = <p style={{ fontSize: 13 }}>{permit.replace(/,/g, ', ')}</p>
+    // console.log(permit)
+    post.date = new Date(post.date)
+    post.date = post.date.toDateString()
+    
     return (
+      
+      
       <div className="container">
         <div className="post card" key={post._id} >
           <div className="card-content">
@@ -73,21 +86,28 @@ class Post extends Component {
             <br />
             <div className="right-align">
               <span className="card-footer" style={{ float: "left" }}>
-                Posted by {post.author} on {date}
+                Posted by {post.author} on {post.date}
               </span>
-              <span className="card-footer">
-                {author === username ? <button onClick={this.handleDelete} className="btn card-footer blue darken-4 z-depth-0" >Delete</button> :   <i class="material-icons">reply</i>}
+              <span className="card-footer" >
+                {author === username 
+                ? 
+                <React.Fragment>
+                <Button onClick={this.handleDelete} className="btn card-footer blue darken-4 z-depth-0 white-text" style={{ marginRight: "15px" }}>Delete</Button>
+
+                <Tooltip title={permit} >
+                  <Button className="btn card-footer blue darken-4 z-depth-0 white-text">Visible to</Button>
+                </Tooltip>
+                </React.Fragment>
+                :  
+                <Tooltip title={permit} >
+                  <Button className="btn card-footer blue darken-4 z-depth-0 white-text">Visible to</Button>
+                </Tooltip>}
               </span>
             </div>
           </div>
         </div>
-
-
         <div>{comments}</div>
-
-
-        < Comment id={id} />
-
+        < Comment id={id} ownUsername={this.props.ownUsername}/>
       </div>
     )
   }
@@ -99,7 +119,7 @@ const mapStateToProps = (state, ownProps) => {
     post: state.postsdata.posts.find(post => post._id === id),
     status: state.postsdata.status,
     users: state.users.usernames,
-    username: state.postsdata.username,
+    username: state.postsdata.username
   }
 }
 

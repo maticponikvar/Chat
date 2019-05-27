@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from "react-redux"
+import { Redirect } from 'react-router'
 
 class SignIn extends Component {
   state = {
@@ -13,35 +15,50 @@ class SignIn extends Component {
 
   handleSubmit = (e) => {
     //const {email, password} = this.state
+    console.log(this.props.history)
     e.preventDefault();
 
-    // console.log(this.props,"prooops")
-
-    fetch("/api/auth/authenticate", {
-      credentials: 'include',
-      method: 'POST',
-      body: JSON.stringify(this.state),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then((res) => {
-        // console.log(res)
-        // console.log(res.body)
-        if (200) {
-          console.log("resss poglej cookie", res)
-          this.props.history.push('/');
-        } else {
-          const error = new Error(res.error);
-          throw error;
+          fetch("/api/auth/authenticate", {
+            credentials: 'include',
+            method: 'POST',
+            body: JSON.stringify(this.state),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+          // var body = await res.json()
+      
+          //     console.log(body)
+            .then((res) => {
+              // console.log(res)
+              // console.log(history)
+              if (200) {
+                console.log("resss poglej cookie", res)
+                // console.log(res.text())
+                return res.json();
+              } else {
+                const error = new Error(res.error)
+                throw error;
+              }
+            })
+            .then((ownUsername) => {
+              // console.log(username)
+              this.props.sendUsername(ownUsername)
+              this.props.history.push("/")
+            })
+            .catch(err => {
+              console.error(err);
+              // dispatch(errorLogIn(err))
+            })
+            // dispatch(processedLogIn())
         }
-      })
-      .catch(err => {
-        console.error(err);
-        alert('Error logging in please try again');
-      })
-  }
+      
+          
+    // console.log(this.props,"prooops")
+    
+
   render() {
+
     // const { authError, auth } = this.props;
     // if (auth.uid) return <Redirect to='/' /> 
     return (
@@ -68,4 +85,11 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn
+const mapDispatchToProps = (dispatch) => {
+  return {
+    sendUsername: (ownUsername) => { dispatch({ type: "LOGIN_SUCCESS", ownUsername: ownUsername }) }
+  }
+}
+
+
+export default connect(null, mapDispatchToProps)(SignIn)

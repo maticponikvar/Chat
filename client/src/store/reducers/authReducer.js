@@ -1,9 +1,11 @@
 const initState = {
-    loggedin: false
+    loggedin: false,
+    ownUsername:"",
+    // status:""
   }
   
   const authReducer = (state = initState, action) => {
-    console.log(action, "6")
+    //console.log(action, "6")
     switch(action.type) {
       case 'LOGGEDIN':
         //console.log('login success');
@@ -18,7 +20,15 @@ const initState = {
           ...state,
           loggedin: false
         }
-  
+
+        case 'LOGIN_SUCCESS':
+        console.log(action);
+        return {
+          ...state,
+          // status: action.status,
+          // username: action.useranme
+        }
+ 
       default:
         return state
     }

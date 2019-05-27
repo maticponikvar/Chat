@@ -13,8 +13,9 @@ class Home extends Component {
 
   render() {
     this.props.loggedIn()
-    //console.log(this.props)
+    // console.log(this.props)
     const { postsdata, status } = this.props
+    console.log(this.props)
 
     const postsList = postsdata.slice(0).reverse().map((post) => {
       console.log(this.props)
@@ -41,7 +42,7 @@ class Home extends Component {
     }
     )
 
-    console.log(postsList)
+    console.log(status)
     return (
       <div className="container">
         {status === "pending" ? <h2 className="center-align">Loading...</h2> : (postsList.length === 0 ? <h2 className="center-align">No posts yet</h2> : postsList)}

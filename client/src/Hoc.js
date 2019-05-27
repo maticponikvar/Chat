@@ -14,9 +14,10 @@ export default function Hoc(ComponentToProtect) {
 
     componentDidMount() {
       //console.log("hello world")
-        axios.get("/api/auth/checkToken", {withCredentials: true})
+      // fetch("/api/auth/checkToken/", { withCredentials: true })
+      axios.get("/api/auth/checkToken/", {withCredentials: true})
         .then(res => {
-          //console.log(res.status)
+          console.log(res.status)
           if (res.status === 200) {
             this.setState({ loading: false });
           } else {
@@ -33,18 +34,20 @@ export default function Hoc(ComponentToProtect) {
 
     render() {
       //console.log("hello world")
+
+
       const { loading, redirect } = this.state;
-      if (loading) {
-        return null;
-      }
-      if (redirect) {
-        return <Redirect to="/signin" />;
-      }
-      return (
-        <React.Fragment>
-          <ComponentToProtect {...this.props} />
-        </React.Fragment>
-      )
+return(
+      <div>
+      {loading 
+      ? <p> </p> 
+      : redirect 
+      ? <Redirect to="/signin" /> 
+      : <React.Fragment>
+      <ComponentToProtect {...this.props} />
+      </React.Fragment>}
+      </div>
+      )     
     }
   }
 }

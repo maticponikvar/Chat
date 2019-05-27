@@ -15,10 +15,14 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "../client/build")))
 
-
+// app.get('*', function (request, response) {
+//   response.sendFile(path.resolve(__dirname, "../client/build/index.html"))
+// });
 
 // app.get('*', function (request, response){
-//   response.sendFile(path.resolve(__dirname, "../client/build/index.html"))
+//   console.log("hello")
+//   response.sendFile(path.resolve(__dirname, "../client/build/index.html"));
+//   next();
 // })
 
 const dbRoute = "mongodb://localhost/blog"
