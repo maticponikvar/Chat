@@ -14,11 +14,9 @@ class Comment extends Component {
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
-    //console.log(this.state)
   }
 
   handleSubmit = (e) => {
-    // console.log(this.props)
     e.preventDefault()
     this.props.createComment(this.state)
     this.setState({
@@ -34,7 +32,7 @@ class Comment extends Component {
             <form onSubmit={this.handleSubmit}>
               <div className="input-field">
                 <TextField
-                 onSubmit={this.handleSubmit}
+                  onSubmit={this.handleSubmit}
                   name="comment"
                   onChange={this.handleChange}
                   value={this.state.comment}
@@ -55,7 +53,6 @@ class Comment extends Component {
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  console.log(ownProps)
   return {
     createComment: (comment) => dispatch(createComment(comment))
   }

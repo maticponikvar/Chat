@@ -1,4 +1,4 @@
-const errorUsers = (err) =>{
+const errorUsers = (err) => {
     return {
         type: "USERS_ERROR",
         status: "error",

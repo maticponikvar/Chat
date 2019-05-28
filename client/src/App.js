@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {Switch, Route, Router, BrowserRouter, HashRouter} from "react-router-dom"
-import './App.css';
+import { Switch, Route, Router, BrowserRouter, HashRouter } from "react-router-dom"
+// import './App.css';
 import Navbar from "./components/layout/Navbar"
 import Home from "./components/posts/Home"
 import AddPost from "./components/posts/AddPost"
@@ -16,17 +16,16 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-      
         <Navbar />
         <Switch>
-          <Route exact path="/" component = {Hoc(Home)}/>
-          <Route path="/AddPost" component = {Hoc(AddPost)}/>
-          <Route path='/signin' component={SignIn}/>
+          <Route exact path="/" component={Hoc(Home)} />
+          <Route path="/AddPost" component={Hoc(AddPost)} />
+          <Route path='/signin' component={SignIn} />
           {/* <Route path='/signup' component={SignUp} /> */}
           <Route path='/signout' component={Hoc(SignOut)} />
-          <Route path="/proposal/:path_id" component = {Hoc(Post)}/>
-        </Switch> 
-        </BrowserRouter>
+          <Route path="/proposal/:path_id" component={Hoc(Post)} />
+        </Switch>
+      </BrowserRouter>
     )
   }
 }

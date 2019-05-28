@@ -44,11 +44,9 @@ class AddPost extends Component {
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
-    //console.log(this.state)
   }
 
   handleSubmit = (e) => {
-    // console.log(prevState)
     e.preventDefault()
     this.props.dispatch(createPost(this.state))
     this.setState({
@@ -59,12 +57,10 @@ class AddPost extends Component {
   }
 
   render() {
-    //console.log(this.props, "PROPS")
     return (
       <div className="container" >
         <div>{this.props.status === "successfulCreation" ? <h2 className="center-align">Successfully created</h2> : this.props.status === "errorPost" ? <h2 className="center-align">Something went wrong</h2> : <h2> </h2>}</div>
         <form onSubmit={this.handleSubmit}>
-          {/* <div style={{ height: 100 }}>{JSON.stringify(this.state)}</div> */}
           <div className="input-field">
             <TextField
               name="title"
@@ -125,7 +121,6 @@ class AddPost extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.postsdata.status, "state")
   return {
     users: state.users.users,
     username: state.postsdata.username,

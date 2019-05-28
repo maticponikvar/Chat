@@ -19,12 +19,9 @@ router.use(cookieParser())
 
 router.post('/register', function (req, res) {
   const { password, username } = req.body;
-  console.log(req.body)
   const user = new User({password, username });
-  console.log(user)
   user.save(function (err) {
     if (err) {
-      console.log(err);
       res.status(500).send("Error registering new user please try again.");
     } else {
       res.status(200).send("Welcome to the club!");
@@ -33,11 +30,9 @@ router.post('/register', function (req, res) {
 });
 
 router.post('/authenticate', function (req, res) {
-  // console.log(req.headers)
   const { username, password } = req.body;
   User.findOne({ username }, function (err, user) {
     if (err) {
-      console.error(err);
       res.status(500)
         .json({
           error: 'Internal error please try again'
@@ -65,8 +60,6 @@ router.post('/authenticate', function (req, res) {
           const token = jwt.sign(payload, secret, {
             expiresIn: '1h'
           });
-          // console.log(token, "tokeeen")
-          
           res
           .cookie('token', token, { httpOnly: true }, { withCredentials: true })
           .status(200)
@@ -79,7 +72,6 @@ router.post('/authenticate', function (req, res) {
 
 router.get('/checkToken', withAuth, function (req, res) {
   res.sendStatus(200);
-  console.log(res.username, req.user, "USER && MAIL")
 });
 
 router.get('/signOut', function (req, res) {

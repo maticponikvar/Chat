@@ -5,7 +5,6 @@ import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/es/storage'
 import rootReducer from "./store/reducers/rootReducer"
 
-
 const loggerMiddleware = createLogger()
 
 const middleware = [thunk, loggerMiddleware]

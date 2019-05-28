@@ -12,7 +12,6 @@ const usersReducer = (state = initState, action) => {
           }
           return requested
           case "USERS_SUCCESS" :
-          //console.log("PostSECC", state)
           const success = {
             ...state,
             users:action.usernames

@@ -14,13 +14,10 @@ class Home extends Component {
   render() {
     this.props.loggedIn()
     const { postsdata, status } = this.props
-    console.log(this.props)
 
     const postsList = postsdata.slice(0).reverse().map((post) => {
-      console.log(this.props)
       let date = new Date(post.date)
       date = date.toDateString()
-      
       return (
         <div className="post card" key={post._id} >
           <div className="card-content">
@@ -38,10 +35,8 @@ class Home extends Component {
           </div>
         </div>
       )
-    }
-    )
+    })
 
-    console.log(status)
     return (
       <div className="container">
         {status === "pending" ? <h2 className="center-align">Loading...</h2> : (postsList.length === 0 ? <h2 className="center-align">No posts yet</h2> : postsList)}

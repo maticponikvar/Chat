@@ -2,7 +2,6 @@ const jwt = require('jsonwebtoken');
 const secret = 'nepovem';
 
 const withAuth = function (req, res, next) {
-  console.log(req.headers)
   const token =
     req.body.token ||
     req.query.token ||
@@ -18,9 +17,9 @@ const withAuth = function (req, res, next) {
       if (err) {
         res.status(401).send('Unauthorized: Invalid token');
       } else {
-        req.email = decoded.email;
+        //req.email = decoded.email;
         req.username = decoded.username;
-        console.log(req.email, req.username, "MAIL & USERNAME")
+        console.log(req.username, "USERNAME")
         next();
       }
     });
