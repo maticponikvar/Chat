@@ -15,11 +15,6 @@ class Chbox extends React.Component {
     teamMates: ["matic", "jaz", "moje ime", "jamojaz"]
   };
 
-//   componentDidMount() {
-//     const teamSize = Math.floor(Math.random() * 16) + 5;
-//     const teamMates = names.random(teamSize);
-//     this.setState({ teamMates });
-//   }
 
   handleChange = event => {
     this.setState({ selected: event.target.value });

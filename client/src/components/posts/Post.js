@@ -4,9 +4,6 @@ import Comment from "./Comment"
 import deletePost from "../../store/actions/DELETEPost/deletePost"
 import Tooltip from '@material-ui/core/Tooltip';
 import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
-// import DeleteIcon from '@material-ui/icons/Delete';
-// import IconButton from '@material-ui/core/IconButton'
 
 class Post extends Component {
   constructor(props) {
@@ -46,8 +43,9 @@ class Post extends Component {
     const comments = post.comments.map((comment) => {
       comment.date = new Date(comment.date)
       comment.date = comment.date.toDateString()
-      let d = new Date().toJSON().slice(0,10).replace(/-/g,'/');
-      // console.log(d)
+      console.log(comment.date)
+      //let d = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+      //console.log(d)
       return (
         <div className="post card" key={comment._id}>
           <div className="card-content">
@@ -56,7 +54,7 @@ class Post extends Component {
             <br />
             <div className="right-align">
               <span className="card-footer" style={{ float: "left" }}>
-                Posted by {!comment.author ? username : comment.author} on {!comment.date ? d : comment.date}
+                Posted by {!comment.author ? username : comment.author} {comment.date === "Invalid Date" ? <span>just now</span> : <span>on {comment.date}</span> }
               </span>
               <span className="card-footer">
                 <i className="material-icons">thumb_up</i>
@@ -74,8 +72,6 @@ class Post extends Component {
     post.date = post.date.toDateString()
     
     return (
-      
-      
       <div className="container">
         <div className="post card" key={post._id} >
           <div className="card-content">

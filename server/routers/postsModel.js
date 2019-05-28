@@ -7,7 +7,6 @@ const commentModel = new Schema({
     author: String
 })
 
-
 const postsModel = new Schema({
     id: String,
     date: { type: Date, default: Date.now },

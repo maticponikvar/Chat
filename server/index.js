@@ -15,16 +15,6 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "../client/build")))
 
-// app.get('*', function (request, response) {
-//   response.sendFile(path.resolve(__dirname, "../client/build/index.html"))
-// });
-
-// app.get('*', function (request, response){
-//   console.log("hello")
-//   response.sendFile(path.resolve(__dirname, "../client/build/index.html"));
-//   next();
-// })
-
 const dbRoute = "mongodb://localhost/blog"
 mongoose.connect(dbRoute, { useNewUrlParser: true })
 
@@ -36,24 +26,14 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 
-// app.use(session({
-//   secret: 'tralalala',
-//   resave: true,
-//   saveUninitialized: false,
-//   cookie: { secure: true },
-//   store: new MongoStore({
-//     mongooseConnection: db
-//   })
-// }))
-
-app.use(function (req, res, next) {
-  // console.log("CORS")
-  // res.header("Access-Control-Allow-Origin", "*");
-  // res.header("Access-Control-Allow-Origin", "http://localhost:3000")
-  // res.header('Access-Control-Allow-Credentials', true);
-  // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+// app.use(function (req, res, next) {
+//   // console.log("CORS")
+//   // res.header("Access-Control-Allow-Origin", "*");
+//   // res.header("Access-Control-Allow-Origin", "http://localhost:3000")
+//   // res.header('Access-Control-Allow-Credentials', true);
+//   // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -83,8 +63,6 @@ app.use(function (req, res, next) {
 //   next();
 // });
 
-// error handler
-// define as the last app.use callback
 app.use(function (err, req, res, next) {
   console.log(err)
   res.status(err.status || 500);

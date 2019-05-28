@@ -13,7 +13,6 @@ class Home extends Component {
 
   render() {
     this.props.loggedIn()
-    // console.log(this.props)
     const { postsdata, status } = this.props
     console.log(this.props)
 
@@ -62,8 +61,6 @@ const mapDispatchToProps = (dispatch) => {
 
 
 const mapStateToProps = (state) => {
-  //console.log(state.auth, "STATEAUTH")
-  // console.log(state, "state")
   return {
     loggedin: state.auth.loggedin,
     postsdata: state.postsdata.posts,

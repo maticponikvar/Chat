@@ -8,7 +8,6 @@ const initState = {
     //console.log(action, "6")
     switch(action.type) {
       case 'LOGGEDIN':
-        //console.log('login success');
         return {
           ...state,
           loggedin: true
@@ -25,8 +24,6 @@ const initState = {
         console.log(action);
         return {
           ...state,
-          // status: action.status,
-          // username: action.useranme
         }
  
       default:

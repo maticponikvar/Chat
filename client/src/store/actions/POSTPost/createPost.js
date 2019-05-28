@@ -22,11 +22,9 @@ const createPost = (post) => {
         }
       })
       .then((res) => {
-        //console.log(getState, "JDSDSAJKDHASHD")
         dispatch(successCreation(post, getState))
       })
       .catch((e) => {
-        //console.log(e)
         dispatch(errorCreation(e))
       })
     dispatch(processedCreation())

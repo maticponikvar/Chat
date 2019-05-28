@@ -9,7 +9,6 @@ const router = express.Router();
 const withAuth = require('./jwtChecker');
 const userModel = require("./userModel");
 
-
 const secret = 'nepovem';
 
 router.get('/secret', withAuth, function (req, res) {
@@ -93,7 +92,6 @@ router.get('/signOut', function (req, res) {
 router.get("/users", withAuth, (req, res) => {
   userModel.find((err, users) => {
     usernames = users.map((user) => user.username)
-    // console.log(usernames, "USERNWMAMES312  31231 ")
     if (err) return res.json({ error: err });
     return res.json({
       usernames: usernames

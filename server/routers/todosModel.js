@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 
-const todosModel = new Schema( {
+const todosModel = new Schema({
     todo: String,
     status: Boolean,
 })

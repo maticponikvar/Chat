@@ -9,9 +9,7 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 // import SignUp from './components/auth/SignUp'
 import Hoc from "./Hoc"
-// import createBrowserHistory from 'history/createBrowserHistory'
 
-// export const history = createBrowserHistory()
 
 
 class App extends Component {

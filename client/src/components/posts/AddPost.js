@@ -13,7 +13,6 @@ import Button from "@material-ui/core/Button";
 class AddPost extends Component {
   constructor(props) {
     const members = props.users
-    // console.log(props)
     const username = props.username
     const selection = members.filter((member) => { return member !== username })
     console.log(selection, "Selcetion")
@@ -42,14 +41,6 @@ class AddPost extends Component {
     this.setState({ open: true });
   };
 
-  //   handleClose = () => {
-  //     this.setState({ open: false });
-  //   };
-
-  //   handleOpen = () => {
-  //     this.setState({ open: true });
-  //   };
-
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
@@ -68,10 +59,7 @@ class AddPost extends Component {
   }
 
   render() {
-
-    // const { auth } = this.props;
-    // if (!auth.uid) return <Redirect to='/signup' /> 
-    console.log(this.props, "PROPS")
+    //console.log(this.props, "PROPS")
     return (
       <div className="container" >
         <div>{this.props.status === "successfulCreation" ? <h2 className="center-align">Successfully created</h2> : this.props.status === "errorPost" ? <h2 className="center-align">Something went wrong</h2> : <h2> </h2>}</div>
@@ -136,18 +124,10 @@ class AddPost extends Component {
   }
 }
 
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//     //console.log(ownProps, "ownprops1111")
-//    return {
-//         createPost: (post) => dispatch(createPost(post))
-//     }
-// }
-
 const mapStateToProps = (state) => {
   console.log(state.postsdata.status, "state")
   return {
     users: state.users.users,
-    // postsdata: state.postsdata,
     username: state.postsdata.username,
     status: state.postsdata.status
   }

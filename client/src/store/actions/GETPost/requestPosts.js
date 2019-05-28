@@ -8,7 +8,6 @@ const requestPosts = () => {
         
         axios.get("/api/posts/", { withCredentials: true })
             .then((res) => {
-                //console.log(res.dasdas, "bodyyyy")
                 const posts = res.data.posts
                 const username = res.data.username
                 console.log(res)

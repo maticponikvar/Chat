@@ -14,7 +14,7 @@ class Navbar extends Component {
     return (
       <nav className="nav-wrapper left-align blue darken-4">
         <div className="cointainer">
-        <a href="#" class="brand-logo left">Chat Room</a>
+        <a href="/" class="brand-logo left">Chat Room</a>
           <ul className="right">
             {!this.props.loggedin ? <SignedOutLinks /> : < SignedInLinks />}
           </ul>
